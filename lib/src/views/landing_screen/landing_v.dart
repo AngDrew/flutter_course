@@ -4,22 +4,76 @@ import 'package:flutter_course/src/views/splash_screen/splash_v.dart';
 class LandingScreen extends StatelessWidget {
   const LandingScreen({
     Key? key,
-    this.myArguments,
   }) : super(key: key);
-
-  final MyArguments? myArguments;
 
   @override
   Widget build(BuildContext context) {
-    MyArguments? tes =
-        ModalRoute.of(context)?.settings.arguments as MyArguments?;
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: Column(
+          //main axis: vertical
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Halo lagi bro ${tes?.name ?? myArguments?.name}'),
+            Expanded(
+              child: SingleChildScrollView(
+                //scrollable
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  //main axis: horizontal
+                  children: [
+                    // Expanded(
+                    //   flex: 2, // 2/4
+                    //   child: Container(
+                    //     // width: 100,
+                    //     height: 100,
+                    //     color: Colors.red,
+                    //   ),
+                    // ),
+                    // Expanded(
+                    //   child: Container(
+                    //     // width: 100,
+                    //     height: 100,
+                    //     color: Colors.green,
+                    //   ),
+                    // ),
+                    // Expanded(
+                    //   child: Container(
+                    //     // width: 100,
+                    //     height: 100,
+                    //     color: Colors.blue,
+                    //   ),
+                    // ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: 100,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: 100,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: 100,
+                      color: Colors.blue,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              //flex default is 1
+              // 2 + 1 = 3
+              // 2/3
+              // 1/3
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                color: Colors.yellow,
+              ),
+            ),
           ],
         ),
       ),

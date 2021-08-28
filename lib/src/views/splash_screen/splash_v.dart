@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_course/src/utils/routes.dart';
 import 'package:flutter_course/src/views/landing_screen/landing_v.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
+      simulateSplashScreen();
+    });
+  }
+
+  Future<void> simulateSplashScreen() async {
+    await Future.delayed(Duration(seconds: 2));
+
+    Navigator.pushReplacementNamed(context, landingRoute);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,61 +33,19 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('HALO DUNIA'),
-            ElevatedButton(
-              child: Text('PINDAH LAYAR'),
-              onPressed: () {
-                // pindahScreen(tes: '');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LandingScreen(
-                      myArguments: MyArguments('Andrewwwww', age: 23),
-                    ),
-                  ),
-                );
-                // Navigator.pushNamed(context, landingRoute,
-                //     arguments: MyArguments('Andrew', age: 23));
-
-                // Navigator.pop(context);
-                // Navigator.pushReplacementNamed(context, landingRoute);
-              },
+            Image.asset(
+              'assets/images/pngegg.png',
+              width: 100,
             ),
+            const SizedBox(height: 16),
+            // Padding(
+            // padding: const EdgeInsets.only(top: 16.0),
+            // child:
+            CircularProgressIndicator(),
+            // ),
           ],
         ),
       ),
     );
   }
-
-  // void pindahScreen({String? tes}) {
-  //   // () {} namanya anonynmous method
-
-  //   // Navigator.pushNamed(context, landingRoute);
-  //   MyArguments tes = MyArguments('', age: 0);
-  // }
-}
-
-class MyArguments {
-  const MyArguments(this.name, {required this.age});
-  // positional arg/param
-  // const MyArguments(
-  //   this.name,
-  //   this.age,
-  // );
-  // optional arg/param
-  // const MyArguments({
-  //   required this.name,
-  //   required this.age,
-  // });
-  // optional positional arg/param
-  // const MyArguments([
-  //   this.name,
-  //   this.age,
-  // ]);
-
-  final String name;
-  final int age;
-
-  @override
-  String toString() => 'name: $name, age: $age';
 }
