@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/src/views/api_example/api_screen.dart';
 import 'package:flutter_course/src/views/landing_screen/landing_v.dart';
 import 'package:flutter_course/src/views/login_screen/login_v.dart';
 import 'package:flutter_course/src/views/splash_screen/splash_v.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_course/src/views/splash_screen/splash_v.dart';
 const String rootRoute = '/';
 const String landingRoute = '/landing';
 const String loginRoute = '/login';
+const String apiRoute = '/api';
 const String notFoundRoute = '/not_found';
 
 /// dokumentasi tes
@@ -28,6 +30,11 @@ Route<dynamic> onGeneratedRoutes(RouteSettings settings) {
     case loginRoute:
       return MaterialPageRoute(
         builder: (context) => LoginScreen(),
+        settings: settings,
+      );
+    case apiRoute:
+      return MaterialPageRoute(
+        builder: (context) => ApiScreen(),
         settings: settings,
       );
 

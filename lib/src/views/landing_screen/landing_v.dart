@@ -24,9 +24,9 @@ class LandingScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, loginRoute);
+                Navigator.pushNamed(context, apiRoute);
               },
-              child: Text('Another Example'),
+              child: Text('API Example'),
             ),
             // ElevatedButton(
             //   onPressed: () {
