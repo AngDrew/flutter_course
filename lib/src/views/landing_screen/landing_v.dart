@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course/src/utils/routes.dart';
+import 'package:flutter_course/src/views/layouting_exercise/exercise_one.dart';
 import 'package:flutter_course/src/views/splash_screen/splash_v.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -27,6 +28,12 @@ class LandingScreen extends StatelessWidget {
                 Navigator.pushNamed(context, apiRoute);
               },
               child: Text('API Example'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, layoutExerciseRoute);
+              },
+              child: Text('Layouting one'),
             ),
             // ElevatedButton(
             //   onPressed: () {
