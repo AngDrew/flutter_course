@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course/src/utils/routes.dart';
+import 'package:flutter_course/src/views/animation_exercise/animation_exercise_v.dart';
 import 'package:flutter_course/src/views/layouting_exercise/exercise_one.dart';
 import 'package:flutter_course/src/views/splash_screen/splash_v.dart';
 
@@ -34,6 +35,17 @@ class LandingScreen extends StatelessWidget {
                 Navigator.pushNamed(context, layoutExerciseRoute);
               },
               child: Text('Layouting one'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AnimationExerciseScreen(),
+                  ),
+                );
+              },
+              child: Text('Animation Example'),
             ),
             // ElevatedButton(
             //   onPressed: () {
