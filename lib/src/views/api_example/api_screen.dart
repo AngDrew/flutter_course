@@ -47,6 +47,7 @@ class _ApiScreenState extends State<ApiScreen> {
         body: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16),
           children: <Widget>[
+            SizedBox(height: 100),
             TextField(
               controller: textEditingController,
             ),
@@ -62,8 +63,7 @@ class _ApiScreenState extends State<ApiScreen> {
                   );
 
                   if (resp.statusCode == 200) {
-                    Map<String, dynamic> data =
-                        resp.data; // Map<String, dynamic>
+                    Map<String, dynamic> data = resp.data;
                     dummy = data['sprites']['other']['official-artwork']
                         ['front_default'];
                     setState(() {});
